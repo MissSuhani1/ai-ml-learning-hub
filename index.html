@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI/ML Learning Hub — Personalized</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#f5f7fb;color:#182033}
+header{background:linear-gradient(135deg,#5146d8,#7b4dff);color:white;padding:25px 18px 30px}.wrap{max-width:1050px;margin:auto}
+.top{display:flex;justify-content:space-between;gap:12px;align-items:center}h1{margin:0;font-size:27px}.sub{opacity:.9;margin-top:6px}.badge{background:#ffffff22;padding:9px 12px;border-radius:20px;white-space:nowrap}
+nav{display:flex;gap:8px;overflow:auto;margin-top:20px}nav button{border:0;background:#ffffff18;color:white;padding:10px 14px;border-radius:10px;white-space:nowrap;cursor:pointer}nav button.active{background:white;color:#5146d8}
+main{max-width:1050px;margin:-15px auto 35px;padding:0 15px}section{display:none;margin-top:18px}section.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:#fff;border-radius:17px;padding:19px;box-shadow:0 5px 22px #1d2a4a0d}.stat{font-size:28px;font-weight:800}.muted{color:#6d7485;font-size:14px}
+.progress{height:9px;background:#e9ecf4;border-radius:10px;overflow:hidden;margin:12px 0}.bar{height:100%;background:#635bff;border-radius:10px}
+.phase{background:white;border-radius:15px;padding:17px;margin:12px 0;box-shadow:0 4px 16px #1d2a4a0a;border-left:5px solid #635bff}.phase h3{margin:0 0 6px}
+.check{display:flex;gap:10px;align-items:center;margin:9px 0}.check input{width:18px;height:18px;accent-color:#635bff}
+.task{display:flex;justify-content:space-between;gap:10px;padding:14px 0;border-bottom:1px solid #edf0f5}.task:last-child{border:0}
+.tag{display:inline-block;padding:5px 9px;border-radius:8px;background:#eeeefe;color:#5146d8;font-size:12px;margin-right:5px}
+.resource{padding:14px;background:#f7f8fc;border-radius:12px;margin:9px 0}.resource b{display:block;margin-bottom:4px}
+textarea,input[type=text]{width:100%;padding:12px;border:1px solid #dfe3ec;border-radius:10px;font:inherit}select{width:100%;padding:11px;border:1px solid #dfe3ec;border-radius:10px;font:inherit}
+.primary{border:0;background:#635bff;color:white;padding:11px 16px;border-radius:10px;cursor:pointer;margin-top:10px}.secondary{border:0;background:#ececff;color:#5146d8;padding:10px 14px;border-radius:10px;cursor:pointer}
+.q{padding:17px 0;border-bottom:1px solid #edf0f5}.q b{display:block;margin-bottom:10px}.option{display:block;padding:8px 0}.option input{margin-right:8px}
+.result{background:#f2f1ff;border-radius:14px;padding:18px;margin-top:15px}.level{font-size:24px;font-weight:800;color:#5146d8}.hide{display:none}
+footer{text-align:center;color:#7a8191;font-size:13px;padding:20px}@media(max-width:600px){h1{font-size:22px}.top{align-items:flex-start}.badge{font-size:11px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="top"><div><h1>🚀 AI/ML Learning Hub</h1><div class="sub">Personalized 2-hour evening AI/ML roadmap</div></div><div class="badge">2 hrs/day • 6 months</div></div>
+<nav>
+<button class="active" onclick="show('dashboard',this)">Dashboard</button>
+<button onclick="show('assessment',this)">🧪 My Level</button>
+<button onclick="show('roadmap',this)">Roadmap</button>
+<button onclick="show('schedule',this)">Timetable</button>
+<button onclick="show('resources',this)">Resources</button>
+<button onclick="show('projects',this)">Projects</button>
+</nav></div></header>
+
+<main>
+<section id="dashboard" class="active">
+<div class="grid">
+<div class="card"><div class="muted">My Python Level</div><div class="stat" id="dashLevel">Not checked</div><div class="muted" id="dashScore">Take the diagnostic first</div></div>
+<div class="card"><div class="muted">Roadmap Progress</div><div class="stat" id="pct">0%</div><div class="progress"><div class="bar" id="bar" style="width:0%"></div></div><div class="muted" id="done">0 / 24 milestones</div></div>
+<div class="card"><div class="muted">Daily commitment</div><div class="stat">2 hrs</div><div class="muted">Evening only — sustainable pace</div></div>
+</div>
+<div class="card" style="margin-top:15px"><h2>🎯 What you should study now</h2><p id="nextStep">Take the Python diagnostic to find your starting point.</p><button class="primary" onclick="showById('assessment')">Check my level</button></div>
+</section>
+
+<section id="assessment">
+<h2>🧪 Python Diagnostic Test</h2>
+<div class="card">
+<p><b>Why this test?</b> “Basic Python” means different things to different people. This test checks the skills that form a practical foundation for AI/ML.</p>
+<p class="muted">Don't Google. If you don't know an answer, choose “I don't know”. The goal is to find your starting point, not to score high.</p>
+<h3>What counts as “ideal basic Python”?</h3>
+<div class="phase">
+<b>Foundation level</b>
+<p>By the end of this level, you should comfortably handle:</p>
+<ul>
+<li>Variables, numbers, strings, booleans and type conversion</li>
+<li>if/elif/else and for/while loops</li>
+<li>Lists, tuples, dictionaries and sets</li>
+<li>Functions, parameters and return values</li>
+<li>Indexing, slicing and basic list comprehensions</li>
+<li>Basic string/list/dictionary operations</li>
+<li>Simple problem solving: digits, prime, palindrome, factorial, patterns</li>
+<li>Reading errors and debugging simple programs</li>
+<li>Basic file handling and a first understanding of OOP</li>
+</ul>
+<p><b>Important:</b> You do NOT need advanced OOP, decorators, generators, async programming or complex libraries before starting NumPy/ML.</p>
+</div>
+<form id="quiz"></form>
+<button class="primary" onclick="evaluateQuiz()">Calculate my level</button>
+<div id="result" class="result hide"></div>
+</div>
+</section>
+
+<section id="roadmap">
+<h2>🗺️ Personalized 6-Month Roadmap</h2>
+<div id="phases"></div>
+</section>
+
+<section id="schedule">
+<h2>⏰ 2-Hour Evening Timetable</h2>
+<div class="card">
+<div class="task"><b>45 min</b><span>📘 Learn one concept deeply</span></div>
+<div class="task"><b>45 min</b><span>💻 Code + 2–4 practice problems</span></div>
+<div class="task"><b>30 min</b><span>🚀 Project / revision</span></div>
+</div>
+<div class="card" style="margin-top:15px"><h3>📅 Weekly Pattern</h3>
+<div class="task"><b>Mon–Thu</b><span>New concepts + coding</span></div>
+<div class="task"><b>Friday</b><span>Revision + weak topics</span></div>
+<div class="task"><b>Saturday</b><span>2-hour project deep work</span></div>
+<div class="task"><b>Sunday</b><span>Light revision / catch-up / rest</span></div>
+</div>
+<div class="card" style="margin-top:15px"><h3>📝 Daily Learning Log</h3><textarea id="note" rows="4" placeholder="Aaj kya seekha? Kahan stuck hui?"></textarea><button class="primary" onclick="saveNote()">Save</button><p class="muted" id="saved"></p></div>
+</section>
+
+<section id="resources">
+<h2>📚 Resource Stack</h2>
+<div class="card">
+<div class="resource"><b>Python</b>Python official docs + beginner coding practice</div>
+<div class="resource"><b>NumPy</b>NumPy User Guide + array exercises</div>
+<div class="resource"><b>Pandas</b>Pandas tutorials + data cleaning exercises</div>
+<div class="resource"><b>Math/Stats</b>Linear algebra, probability and statistics practice</div>
+<div class="resource"><b>ML</b>Scikit-learn tutorials + model evaluation</div>
+<div class="resource"><b>Deep Learning</b>PyTorch beginner tutorials</div>
+<div class="resource"><b>GenAI</b>Embeddings, vector search, RAG and LLM APIs</div>
+</div>
+</section>
+
+<section id="projects">
+<h2>🚀 Portfolio Project Ladder</h2>
+<div class="phase"><span class="tag">Month 2</span><h3>📊 Student Performance Analytics</h3><p>Clean a real dataset, explore relationships, visualize results and write insights.</p></div>
+<div class="phase"><span class="tag">Month 3</span><h3>🤖 Student Performance Predictor</h3><p>Train regression/classification models, compare algorithms, evaluate metrics and build a simple prediction interface.</p></div>
+<div class="phase"><span class="tag">Month 4</span><h3>🔁 Customer Churn Prediction</h3><p>Handle missing values, categorical features, class imbalance, model comparison and feature importance.</p></div>
+<div class="phase"><span class="tag">Month 5</span><h3>🎬 Recommendation System</h3><p>Build a content-based recommender using similarity, create a clean UI and evaluate recommendations.</p></div>
+<div class="phase"><span class="tag">Month 5–6</span><h3>🖼️ Image Classification</h3><p>Train a CNN with PyTorch, use validation data, plot learning curves and test predictions.</p></div>
+<div class="phase"><span class="tag">Month 6</span><h3>💬 RAG AI Study Assistant</h3><p>Build a study assistant that searches uploaded notes, retrieves relevant chunks and generates grounded answers.</p></div>
+</section>
+</main>
+<footer>Progress, level and notes are stored locally in your browser.</footer>
+
+<script>
+const qs=[
+["What is the output of print(2 + 3 * 2)?",["10","8","12","I don't know"],1,1],
+["Which data type stores True or False?",["str","bool","float","I don't know"],1,1],
+["What does len([10,20,30]) return?",["2","3","30","I don't know"],1,1],
+["Which loop is commonly used to iterate through a list?",["for","switch","try","I don't know"],0,1],
+["What does nums[1:4] mean for a list?",["Elements at indexes 1,2,3","Only index 4","First 4 elements","I don't know"],0,1],
+["Which creates a dictionary?",["[1,2]","(1,2)","{'name':'A'}","I don't know"],2,1],
+["What does a function's return statement do?",["Repeats the loop","Sends a value back to the caller","Prints automatically","I don't know"],1,1],
+["What is the output? x=[1,2,3]; x.append(4); print(x)",["[1,2,3]","[1,2,3,4]","4","I don't know"],1,1],
+["Which is a valid list comprehension?",["[x*2 for x in nums]","for x*2 in nums","[for x in nums]","I don't know"],0,1],
+["What is a common way to handle an error that may occur at runtime?",["try/except","if/print only","loop/return","I don't know"],0,1],
+["Which mode opens a text file for writing and can replace its existing contents?",["'r'","'w'","'x' only","I don't know"],1,1],
+["What is the purpose of a class in Python?",["Create objects/define their structure and behavior","Only store numbers","Replace loops","I don't know"],0,2],
+["What does `import numpy as np` do?",["Deletes NumPy","Imports NumPy and gives it alias np","Creates a dataset","I don't know"],1,1],
+["For AI/ML data, which Pandas object is commonly used for tabular data?",["DataFrame","Boolean","Tuple","I don't know"],0,1],
+["Can you write a small Python program without copying a tutorial, debug a simple error, and explain your code?",["Yes","Sometimes","Not yet","I don't know"],0,2]
+];
+
+function buildQuiz(){
+ const f=document.getElementById("quiz");
+ qs.forEach((q,i)=>{
+ let d=document.createElement("div");d.className="q";let s=`<b>${i+1}. ${q[0]}</b>`;
+ q[1].forEach((o,j)=>s+=`<label class="option"><input type="radio" name="q${i}" value="${j}"> ${o}</label>`);
+ d.innerHTML=s;f.appendChild(d);
+ });
+}
+function evaluateQuiz(){
+ let score=0,answered=0;
+ qs.forEach((q,i)=>{let a=document.querySelector(`input[name=q${i}]:checked`);if(a){answered++;if(+a.value===q[2])score+=q[3]}});
+ let max=qs.reduce((a,q)=>a+q[3],0),pct=Math.round(score/max*100);
+ let level,step;
+ if(pct<35){level="Beginner";step="Start with Python Foundation: syntax, variables, conditions, loops and basic problem solving."}
+ else if(pct<60){level="Basic";step="Start with the Foundation gaps, especially functions, collections, slicing and debugging."}
+ else if(pct<80){level="Strong Basic";step="Start with a short Python revision, then move into NumPy + Pandas."}
+ else if(pct<92){level="Intermediate";step="You can move to NumPy + Pandas and begin ML math alongside practice."}
+ else {level="ML-Ready Python";step="Skip most basic Python revision and start NumPy/Pandas + ML foundations."}
+ localStorage.setItem("aiml_level",level);localStorage.setItem("aiml_score",pct);localStorage.setItem("aiml_step",step);
+ document.getElementById("result").classList.remove("hide");
+ document.getElementById("result").innerHTML=`<div class="level">${level}</div><p><b>Score:</b> ${pct}% (${answered}/${qs.length} answered)</p><p>${step}</p><p class="muted">This is a learning diagnostic, not an exam. If you feel a topic is weak despite the score, start from that topic.</p>`;
+ updateLevel();
+}
+function updateLevel(){
+ let l=localStorage.getItem("aiml_level");let s=localStorage.getItem("aiml_score");let st=localStorage.getItem("aiml_step");
+ document.getElementById("dashLevel").textContent=l||"Not checked";document.getElementById("dashScore").textContent=s?`Diagnostic: ${s}%`:"Take the diagnostic first";document.getElementById("nextStep").textContent=st||"Take the Python diagnostic to find your starting point.";
+}
+const phases=[
+["Month 1","Python Foundations",["Variables, types & operators","Conditions + loops","Lists/dicts/sets + comprehensions","Functions + debugging"]],
+["Month 2","NumPy + Pandas + Data",["NumPy arrays","Pandas DataFrames","Data cleaning","Visualization + analytics project"]],
+["Month 3","Math + Classical ML",["Statistics & probability","Linear algebra essentials","Regression","Classification + evaluation"]],
+["Month 4","ML Projects",["Feature engineering","Model comparison","Customer churn project","Deployment basics"]],
+["Month 5","Deep Learning",["Neural networks","PyTorch basics","CNNs","Recommendation system"]],
+["Month 6","GenAI + Portfolio",["Embeddings + vector search","RAG fundamentals","AI study assistant","GitHub + portfolio + hackathon prep"]]
+];
+const key="aiml_v3_tasks",noteKey="aiml_v3_note";let state=JSON.parse(localStorage.getItem(key)||"{}");
+function render(){let box=document.getElementById("phases"),idx=0;box.innerHTML="";phases.forEach(p=>{let d=document.createElement("div");d.className="phase";d.innerHTML=`<h3>${p[0]} — ${p[1]}</h3>`;p[2].forEach(t=>{let k=idx++,r=document.createElement("label");r.className="check";r.innerHTML=`<input type="checkbox" data-k="${k}" ${state[k]?"checked":""}><span>${t}</span>`;d.appendChild(r)});box.appendChild(d)});document.querySelectorAll('#phases input').forEach(c=>c.onchange=()=>{state[c.dataset.k]=c.checked;localStorage.setItem(key,JSON.stringify(state));update()});update()}
+function update(){let total=24,done=Object.values(state).filter(Boolean).length,p=Math.round(done/total*100);document.getElementById("pct").textContent=p+"%";document.getElementById("bar").style.width=p+"%";document.getElementById("done").textContent=`${done} / ${total} milestones`}
+function show(id,b){document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active")}
+function showById(id){document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));document.querySelectorAll("nav button")[1].classList.add("active")}
+function saveNote(){localStorage.setItem(noteKey,document.getElementById("note").value);document.getElementById("saved").textContent="Saved ✓"}
+document.getElementById("note").value=localStorage.getItem(noteKey)||"";buildQuiz();render();updateLevel();
+</script>
+</body></html>
